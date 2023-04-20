@@ -87,4 +87,7 @@ func (l *LinkedList) InserirEmPosicao(valor int, posicao int) bool {
     return true
 }
 
+func (l *LinkedList) Tamanho () int {
+    return l.tamanho
+}
 

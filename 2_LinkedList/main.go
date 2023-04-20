@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	"sample-app/list"
 )
 
@@ -13,6 +13,7 @@ func main() {
 	}
 
 	lista.ImprimirLista()
+	fmt.Println(lista.Tamanho())
 	lista.Remove(5)
 	lista.ImprimirLista()
 	lista.InserirEmPosicao(24,3)

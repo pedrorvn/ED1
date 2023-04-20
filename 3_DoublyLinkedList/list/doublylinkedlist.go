@@ -72,7 +72,7 @@ func (lista *DoublyLinkedList) InserirElementoEmPosicao (valor, pos int) {
     if lista.cabeca == nil {
         lista.cabeca = NovoNo
         lista.cauda = NovoNo
-    } else if pos == 0 {
+    } else if pos == 0 { 
         NovoNo.prox = lista.cabeca
         lista.cabeca.ant = NovoNo
         lista.cabeca = NovoNo
