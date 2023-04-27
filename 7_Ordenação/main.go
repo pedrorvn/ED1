@@ -46,4 +46,15 @@ func main() {
 	// Ordena o slice usando Insertion Sort
 	sort.InsertionSort(v)
 	fmt.Println("Slice ordenado pelo Insertion Sort:", v)
+
+	// Gera novos valores aleatórios para o slice
+	for i := 0; i < n; i++ {
+		v[i] = rand.Intn(100)
+	}
+	// Imprime o slice desordenado
+	fmt.Println("Slice desordenado:", v)
+
+	// Ordena o slice usando Merge Sort
+	sort.MergeSort(v)
+	fmt.Println("Slice ordenado pelo Merge Sort:", v)
 }
