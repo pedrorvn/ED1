@@ -68,4 +68,16 @@ func main() {
 	// Ordena o slice usando Quick Sort
 	sort.QuickSort(v,0,len(v)-1)
 	fmt.Println("Slice ordenado pelo Quick Sort:", v)
+
+	// Gera novos valores aleatórios para o slice
+	for i := 0; i < n; i++ {
+		v[i] = rand.Intn(100)
+	}
+	
+	// Imprime o slice desordenado
+	fmt.Println("Slice desordenado:", v)
+	
+	// Ordena o slice usando Quick Sort
+	sort.CountingSort(v)
+	fmt.Println("Slice ordenado pelo Counting Sort:", v)
 }
