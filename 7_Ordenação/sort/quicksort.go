@@ -14,18 +14,7 @@ func QuickSort(v []int, start int, end int){
 	}
 }
 
-func partition(v []int, ini int, fim int) int{
-	pIndex := ini
-	pivo := v[fim]
-	for i:=ini; i<fim; i++ {
-		if v[i]<=pivo {
-			v[i], v[pIndex] = v[pIndex], v[i]
-			pIndex++
-		}
-	}
-	v[pIndex], v[fim] = v[fim], v[pIndex]
-	return pIndex
-}
+
 // Função que escolhe o pivo de forma aleatória
 func partition2(v []int, ini int, fim int) int{
 	//Escolhendo o pivo
@@ -47,3 +36,15 @@ func partition2(v []int, ini int, fim int) int{
 	return pIndex
 }
 
+func partition(v []int, ini int, fim int) int{
+	pIndex := ini
+	pivo := v[fim]
+	for i:=ini; i<fim; i++ {
+		if v[i]<=pivo {
+			v[i], v[pIndex] = v[pIndex], v[i]
+			pIndex++
+		}
+	}
+	v[pIndex], v[fim] = v[fim], v[pIndex]
+	return pIndex
+}
