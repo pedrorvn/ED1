@@ -24,12 +24,12 @@ func main (){
 	rootNode.Add(1)
 	rootNode.Add(14)
 
-  	rootNode = rootNode.Remove(12)
-  	rootNode = rootNode.Remove(9)
+  	//rootNode = rootNode.Remove(12)
+  	//rootNode = rootNode.Remove(9)
 
-	rootNode.PrintIn()
+	//rootNode.PrintIn()
   	//fmt.Println("Size: ", rootNode.Size())
-
+	rootNode.PrintLevels()
 
   	//fmt.Println("IsBst: ", nonBstNode.IsBst())
 

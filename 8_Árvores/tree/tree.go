@@ -2,6 +2,7 @@ package tree
 
 import (
 	"fmt"
+	"sort"
 )
 
 type BstNode struct {
@@ -110,6 +111,26 @@ func (bstNode *BstNode) PrintIn() {
 	fmt.Print(bstNode.value,", ")
   }
 
+  func (bstNode *BstNode) PrintLevels() {
+		fila := []*BstNode{}
+		fila = append(fila, bstNode)
+
+		for len(fila) > 0 {
+    		atual := fila[0] //separa o primeiro nó numa var
+    		fila = fila[1:]
+			fmt.Print(atual.value, ", ")
+   
+   			// Insere os filhos do último nó na fila
+   			if atual.left != nil {
+   				fila = append(fila, atual.left)
+   			}
+   			if atual.right != nil {
+   			 	fila = append(fila, atual.right)
+   			}
+			
+		}
+  }
+
   func (bstNode *BstNode) Remove(value int) *BstNode {
 	if value < bstNode.value{
 	  bstNode.left = bstNode.left.Remove(value)
@@ -131,3 +152,51 @@ func (bstNode *BstNode) PrintIn() {
 	}
 	return bstNode
   }
+
+  func (bstNode *BstNode) isBST() bool {
+    if bstNode.left != nil{
+        if bstNode.left.value < bstNode.value {
+            return bstNode.left.isBST()
+        } else{
+            return false
+        }
+    }
+    if bstNode.right != nil{
+        if bstNode.right.value > bstNode.value {
+            return bstNode.right.isBST()
+        } else{
+            return false
+        }
+    }
+    return true
+ }
+ 
+func (bstNode *BstNode) Size() int {
+    /*if bstNode == nil{
+        return 0
+    }*/
+    contador := 1 
+    if bstNode.left != nil{
+        contador = contador + bstNode.left.Size()
+    }
+    if bstNode.right != nil{
+        contador = contador + bstNode.right.Size()
+    }
+    return contador
+}
+
+func createBst(v []int, start int, end int) *BstNode {
+    if start > end {
+        return nil
+    }
+    sort.Ints(v)
+    
+    mid := (start + end)/2
+    raiz := NewNode(v[mid])
+
+    raiz.left = createBst(v,start,mid - 1)
+    raiz.right = createBst(v,mid+1,end)
+
+    return raiz
+}
+
